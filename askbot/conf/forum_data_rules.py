@@ -163,7 +163,7 @@ settings.register(
     livesettings.IntegerValue(
         FORUM_DATA_RULES,
         'MIN_TITLE_LENGTH',
-        default=10,
+        default=3,
         description=_('Minimum length of title (number of characters)')
     )
 )
@@ -172,7 +172,7 @@ settings.register(
     livesettings.IntegerValue(
         FORUM_DATA_RULES,
         'MIN_QUESTION_BODY_LENGTH',
-        default=10,
+        default=0,
         description=_(
             'Minimum length of question body (number of characters)'
         )
@@ -183,7 +183,7 @@ settings.register(
     livesettings.IntegerValue(
         FORUM_DATA_RULES,
         'MIN_ANSWER_BODY_LENGTH',
-        default=10,
+        default=1,
         description=_(
             'Minimum length of answer body (number of characters)'
         )
@@ -203,7 +203,7 @@ settings.register(
     livesettings.IntegerValue(
         FORUM_DATA_RULES,
         'MIN_COMMENT_BODY_LENGTH',
-        default=10,
+        default=1,
         description=_(
             'Minimum length of comment (number of characters)'
         )
