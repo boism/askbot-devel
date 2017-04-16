@@ -31,10 +31,9 @@ class AskbotStaticSettings(AppConf):
         }
 
     QUESTION_PAGE_BASE_URL = pgettext('urls', 'question') + '/'
-    print QUESTION_PAGE_BASE_URL
     SERVICE_URL_PREFIX = 's/' # prefix for non-UI urls
     SELF_TEST = True # if true - run startup self-test
-    TRANSLATE_URL = False # set true to localize urls
+    TRANSLATE_URL = True # set true to localize urls
     WHITELISTED_IPS = tuple() # a tuple of whitelisted ips for moderation
 
     class Meta:
