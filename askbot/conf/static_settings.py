@@ -1,5 +1,6 @@
 from django.conf import settings
-if settings.ASKBOT_TRANSLATE_URL == True:
+
+if getattr(settings, 'ASKBOT_TRANSLATE_URL', False):
     from django.utils.translation import pgettext
 else:
     pgettext = lambda context, value: value
@@ -33,7 +34,7 @@ class AskbotStaticSettings(AppConf):
     QUESTION_PAGE_BASE_URL = pgettext('urls', 'question') + '/'
     SERVICE_URL_PREFIX = 's/' # prefix for non-UI urls
     SELF_TEST = True # if true - run startup self-test
-    TRANSLATE_URL = settings.ASKBOT_TRANSLATE_URL # set true to localize urls
+    TRANSLATE_URL = getattr(settings, 'ASKBOT_TRANSLATE_URL', False) # set true to localize urls
     WHITELISTED_IPS = tuple() # a tuple of whitelisted ips for moderation
 
     class Meta:
