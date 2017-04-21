@@ -2751,7 +2751,8 @@ tr.mceLast {
   text-align: right;
 }
 .question-page .comments .comment {
-  border-bottom: 1px solid #edeeeb;
+  border-bottom: 1px dashed #edeeeb;
+  border-top: 1px dashed #edeeeb;
   display: table;
   font-family: Arial;
   font-size: 11px;
@@ -5081,18 +5082,37 @@ td.setting-input textarea {
     float: none;
     width: 100%;
   }
+  .js-avatar-box {
+    text-decoration: none;
+    width: 32px;
+    height: 32px;
+  }
+  .user-card .js-avatar-box {
+    float: right;
+    margin: -25px 2px 0 0;
+  }
   .question-page .post-update-info {
     float: none;
     margin-left: 0;
     width: auto;
   }
+  .question-page .post-update-info .gravatar {
+   float: right;
+   margin-right: 4px;
+   display:block;
+  }
+  .question-page .post-update-info .user-card {
+    height: 10px;
+    display: inline-block;
+    width: 100%;
+    overflow: visible;
+    margin: 4px 0px 0px 2px;                      
+   }
   .question-page .post-update-info br,
   .question-page .post-update-info .badge1,
   .question-page .post-update-info .badge2,
   .question-page .post-update-info .badge3,
-  .question-page .post-update-info .gravatar,
   .question-page .post-update-info .reputation-score,
-  .question-page .post-update-info .user-card,
   .question-page .post-update-info .badge-count {
     display: none;
   }
