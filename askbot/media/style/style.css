@@ -731,8 +731,9 @@ body.user-messages {
   width: 100%;
 }
 #searchBar input[type="submit"].searchBtn {
-  right: 0;
+  right: -2px;
   top: 0;
+  border-radius: 15px;
 }
 #searchBar input[type="button"].cancelSearchBtn {
   right: 39px;
@@ -5099,6 +5100,7 @@ td.setting-input textarea {
     width: 35px;
     display: block;
     float: left;
+    border-radius:  10px;
   }
   #homeButton i {
     color: #7a7a7b;
@@ -5145,14 +5147,14 @@ td.setting-input textarea {
   }
   #searchBar {
     /* Main search form , check widgets/search_bar.html */
-    
     border: 1px solid #c9c9b5;
     background: white;
     height: 28px;
     z-index: 1000;
     position: relative;
-    width: 100%;
+    width: 80%;
     /* the guts are absolute-positioned */
+    border-radius: 10px;
   }
   #searchBar input.searchInput {
     font-size: 16px;
@@ -5193,8 +5195,8 @@ td.setting-input textarea {
   }
   input[type="submit"].searchBtn {
     font-size: 10px;
-    color: #666;
-    background-color: #eee;
+    color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
     height: 27px;
     border: #FFF 1px solid;
     line-height: 22px;
@@ -5202,8 +5204,7 @@ td.setting-input textarea {
     margin: 0;
     width: 30px;
     /* background-size: 20%; */
-    
-    background: -105px -44px url(../images/sprites.png) no-repeat;
+    background: -107px -44px url(../images/sprites.png) no-repeat;
     border-radius: 0;
     -ms-border-radius: 0;
     -moz-border-radius: 0;
@@ -5211,7 +5212,7 @@ td.setting-input textarea {
     -khtml-border-radius: 0;
     -webkit-box-shadow: 0 0 0 #929292;
     -moz-box-shadow: 0 0 0 #929292;
-    box-shadow: 0 0 0 #929292;
+    /* box-shadow: 0 0 0 #929292; */
     cursor: pointer;
     z-index: 10001;
   }
