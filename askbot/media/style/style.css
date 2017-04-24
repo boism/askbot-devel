@@ -269,7 +269,9 @@ a:hover {
   text-decoration: underline;
 }
 h1 {
-  font-size: 24px;
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 30px;
   padding: 0px 0 5px 0px;
 }
 /* ----- Extra space above for messages ----- */
