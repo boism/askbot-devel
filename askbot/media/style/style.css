@@ -4754,7 +4754,7 @@ textarea.tipped-input {
   border: none;
   box-shadow: none;
   font-size: 14px;
-  font-color: #707070;
+  color: #707070;
   height: 16px;
   line-height: 16px;
   margin: 9px 0 0 -6px;
@@ -5237,6 +5237,10 @@ td.setting-input textarea {
     width: 35px !important;
     cursor: pointer;
     z-index: 10001;
+  }
+  input[type="submit"].searchBtn:hover {
+    background-image: none;
+    background: #dddddd url(../images/sprites.png) no-repeat -155px -44px !important;
   }
   #scopeNav {
     height: 30px;
