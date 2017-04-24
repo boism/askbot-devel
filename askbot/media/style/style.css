@@ -5335,7 +5335,7 @@ td.setting-input textarea {
   }
   .short-summary .userinfo {
     text-align: right;
-    line-height: 34px;
+    line-height: 10px;
     font-family: "Microsoft YaHei", STXihei, serif;
     padding-right: 4px;
     padding-top: 4px;
@@ -5349,7 +5349,7 @@ td.setting-input textarea {
   .short-summary .counts .views div,
   .short-summary .counts .answers div,
   .short-summary .counts .favorites div {
-    margin-top: 8px;
+    margin-top: 0px;
     font-size: 12px;
     line-height: 12px;
     color: #646464;
@@ -5365,10 +5365,11 @@ td.setting-input textarea {
   .short-summary .answers,
   .short-summary .views,
   .short-summary .votes {
-    height: 31px;
-    width: 31px;
+    height: 40px;
+    width: 40px;
     padding: 5px 0px 0px 0px;
     margin: 0 2px;
+    border-radius: 20px;
   }
   .question-page .post-update-info {
     float: none;
