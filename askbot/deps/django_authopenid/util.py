@@ -462,12 +462,12 @@ def get_enabled_major_login_providers():
             'name': 'facebook',
             'display_name': 'Facebook',
             'type': 'oauth2',
-            'auth_endpoint': 'https://www.facebook.com/v2.2/dialog/oauth/',
-            'token_endpoint': 'https://graph.facebook.com/v2.2/oauth/access_token',
-            'resource_endpoint': 'https://graph.facebook.com/v2.2/',
+            'auth_endpoint': 'https://www.facebook.com/v2.8/dialog/oauth/',
+            'token_endpoint': 'https://graph.facebook.com/v2.8/oauth/access_token',
+            'resource_endpoint': 'https://graph.facebook.com/v2.8/',
             'icon_media_path': 'images/jquery-openid/facebook.gif',
             'get_user_id_function': get_facebook_user_id,
-            'response_parser': lambda data: dict(urlparse.parse_qsl(data)),
+            'response_parser': lambda data: simplejson.loads(data),
             'scope': ['email',],
         }
 

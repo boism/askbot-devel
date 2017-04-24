@@ -1,6 +1,10 @@
 Changes in Askbot
 =================
 
+Develpment version
+------------------
+* Updated Facebook login Api to v2.8
+
 0.10.2 (Dec 21, 2016)
 ---------------------
 * Bug fixes for the previous version

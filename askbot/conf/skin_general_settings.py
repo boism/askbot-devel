@@ -174,6 +174,7 @@ settings.register(
         GENERAL_SKIN_SETTINGS,
         'CUSTOM_HEADER',
         default='',
+        localized=True,
         description=_('Custom header additions'),
         help_text=_(
             'Header is the bar at the top of the content that contains user '
@@ -207,6 +208,7 @@ settings.register(
     values.LongStringValue(
         GENERAL_SKIN_SETTINGS,
         'CUSTOM_FOOTER',
+        localized=True,
         description=_('Custom footer (HTML format)'),
         help_text=_(
             '<strong>To enable this function</strong>, please select option '
