@@ -5427,6 +5427,7 @@ td.setting-input textarea {
   }
   .short-summary .tags {
     margin-top: 0px;
+    padding-top: 10px;
   }
   .short-summary .tags li {
     margin: 10px 4px 2px 0;
