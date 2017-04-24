@@ -249,6 +249,7 @@ a:hover {
 .user-card .js-avatar {
   height: 32px !important;
   width: 32px;
+  border-radius: 20px;
 }
 .comment-controls .js-avatar,
 .message .js-avatar {
