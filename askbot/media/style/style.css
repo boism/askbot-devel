@@ -5167,7 +5167,7 @@ td.setting-input textarea {
     font-family: Arial;
     width: 100%;
     margin: 0px 0 0px 0;
-    padding: 0 80px 0 6px;
+    padding: 0 30px 0 6px;
     top: 0;
     left: 0;
     -webkit-box-shadow: 0 0 0 #929292;
@@ -5321,7 +5321,7 @@ td.setting-input textarea {
   }
   .user-card .js-avatar-box {
     float: right;
-    margin: -25px 2px 0 0;
+    margin: -20px 2px 0 0;
   }
   .user-list .user-card .js-avatar-box {
     float: right;
@@ -5381,6 +5381,7 @@ td.setting-input textarea {
     float: right;
     margin-right: 4px;
     display: block;
+    border-radius: 20px;
   }
   .question-page .post-update-info .user-card {
     height: 10px;
