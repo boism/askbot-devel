@@ -676,7 +676,6 @@ body.user-messages {
 }
 #searchBar {
   /* Main search form , check widgets/search_bar.html */
-  
   border: 1px solid #c9c9b5;
   background: white;
   height: 41px;
@@ -684,6 +683,7 @@ body.user-messages {
   position: relative;
   width: 100%;
   /* the guts are absolute-positioned */
+  border-radius: 15px;
 }
 #searchBar input.searchInput,
 #searchBar div.input-tool-tip,
@@ -1457,6 +1457,7 @@ ul#searchTags {
   float: right;
   height: 44px;
   border: #dbdbd4 1px solid;
+  border-radius: 26px;
 }
 .short-summary .votes {
   background: url(../images/vote-background.png) repeat-x;
@@ -2495,6 +2496,7 @@ tr.mceLast {
 .question-page .post-update-info .gravatar {
   float: left;
   margin-right: 4px;
+  border-radius: 20px;
 }
 .question-page .post-update-info p.tip {
   color: #444;
