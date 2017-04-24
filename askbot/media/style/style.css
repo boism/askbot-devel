@@ -1396,7 +1396,7 @@ ul#searchTags {
   /*background: url(../images/summary-background.png) repeat-x;*/
 }
 .short-summary h2 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: normal;
   line-height: 26px;
   padding-left: 0;
@@ -5257,17 +5257,7 @@ td.setting-input textarea {
   .meta #ContentLeft {
     padding: 0 10px;
   }
-  .main-page h1,
-  #askButton,
-  #metaNav #navBadges,
-  .copyright,
-  .help,
-  .rss,
-  .scope-selector,
-  .settings,
-  .tabBar,
-  .tags,
-  .widgets {
+  .main-page h1, #askButton, .copyright, .help, .rss, .scope-selector, .settings, .tabBar, .tags, .widgets {
     display: none;
   }
   .ask-page input[type="submit"].searchBtn,
@@ -5333,6 +5323,10 @@ td.setting-input textarea {
   .user-card .js-avatar-box {
     float: right;
     margin: -25px 2px 0 0;
+  }
+  .user-list .user-card .js-avatar-box {
+    float: right;
+    margin: 0px 10px 0 0;
   }
   /* front page short summary */
   
@@ -5412,9 +5406,7 @@ td.setting-input textarea {
     float: right;
     margin-right: 10px;
   }
-  #metaNav a#navUsers,
-  #metaNav a#navTags,
-  #metaNav a#navGroups {
+  #metaNav a#navUsers, #metaNav a#navTags, #metaNav a#navGroups, #metaNav #navBadges {
     background: none;
     color: #d0e296;
     font-size: 12px;
@@ -5422,6 +5414,7 @@ td.setting-input textarea {
     text-decoration: underline;
     margin: 0px 10px 0px 0px;
     padding-left: 0;
+    display: block;
   }
   .powered-link {
     margin-bottom: 15px;
