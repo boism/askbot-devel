@@ -5089,7 +5089,7 @@ td.setting-input textarea {
   #header.with-logo #userToolsNav {
     position: absolute;
     bottom: -5px;
-    left: 0px;
+    margin-left: 4px;
     /* top: 10px; */
   }
   #homeButton {
@@ -5408,7 +5408,7 @@ td.setting-input textarea {
   }
   #metaNav {
     float: right;
-    margin-right: 20px;
+    margin-right: 10px;
   }
   #metaNav a#navUsers,
   #metaNav a#navTags,
@@ -5418,7 +5418,7 @@ td.setting-input textarea {
     font-size: 12px;
     font-weight: 400;
     text-decoration: underline;
-    margin: 8px 10px 5px 0px;
+    margin: 0px 10px 0px 0px;
     padding-left: 0;
   }
   .powered-link {
