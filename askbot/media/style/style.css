@@ -5398,12 +5398,7 @@ td.setting-input textarea {
     overflow: visible;
     margin: 4px 0px 0px 2px;
   }
-  .question-page .post-update-info br,
-  .question-page .post-update-info .badge1,
-  .question-page .post-update-info .badge2,
-  .question-page .post-update-info .badge3,
-  .question-page .post-update-info .reputation-score,
-  .question-page .post-update-info .badge-count {
+  .question-page .post-update-info br, .question-page .post-update-info .badge-count {
     display: none;
   }
   .footer-links,
