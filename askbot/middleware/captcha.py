@@ -25,11 +25,15 @@ class CaptchaMiddleware(object):
             ans = request.COOKIES['robotans']
             if get_md5_value("_bigbobo_"+ask)[0:8] == ans :
                 return None
-            
-        ask = ''.join(random.choice(string.ascii_letters) for x in range(5))
+        if 'robotask' in COOKIES:
+            del COOKIES['robotask']
+        if 'robotans' in COOKIES:
+            del COOKIES['robotans']
+
+        ask = ''.join(random.choice(string.string.printable[:94]) for x in range(5))
         ans = get_md5_value("_bigbobo_"+ask)[0:8]
-            
-            
+
+
         txt = Image.new('RGBA', (120, 20), (0,0,0,0))
 
         # get a font
@@ -38,13 +42,13 @@ class CaptchaMiddleware(object):
         d = ImageDraw.Draw(txt)
         # draw text, full opacity
         #d.text((0,0), get_md5_value("_"+"World")[0:8], font=fnt, fill=(255,255,255,255))
-        
+
         d.text((0,0), ans, font=fnt, fill=(255,255,255,255))
 
         #out = Image.alpha_composite(base, txt)
 
         #txt.show()
-        imagefile = StringIO() 
+        imagefile = StringIO()
         txt.save(imagefile, format='JPEG')
         imagedata = imagefile.getvalue()
         response = HttpResponse("<p>To ensure you are not a robot, please enter the text on the image:</p><input id='ans'/><img src='"+"data:image/jpeg;base64," + base64.b64encode(imagedata)+"' /><input type=button onclick='document.cookie=\"robotans=\"+document.getElementById(\"ans\").value+\";expires=Thu, 01-Jan-2038 00:00:01 GMT;path=/\";window.location.reload();' value=go>")
