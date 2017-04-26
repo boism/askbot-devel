@@ -41,6 +41,7 @@ from askbot import const as askbot_const
 from askbot.forms import AskbotReCaptchaField
 from askbot.utils.forms import NextUrlField, UserNameField, UserEmailField, SetPasswordForm
 from askbot.utils.loading import load_module
+from sweetcaptcha.fields import SweetCaptchaField
 
 # needed for some linux distributions like debian
 try:
@@ -115,6 +116,7 @@ class LoginForm(forms.Form):
     * facebook login (javascript-based facebook's sdk)
     """
     next = NextUrlField()
+    recaptcha = SweetCaptchaField()
     login_provider_name = LoginProviderField()
     persona_assertion = forms.CharField(
                             required=False,
@@ -318,7 +320,7 @@ class SafeOpenidRegisterForm(OpenidRegisterForm):
     """
     def __init__(self, *args, **kwargs):
         super(SafeOpenidRegisterForm, self).__init__(*args, **kwargs)
-        self.fields['recaptcha'] = AskbotReCaptchaField()
+        self.fields['recaptcha'] = SweetCaptchaField()
 
 
 class ClassicRegisterForm(SetPasswordForm):
@@ -348,7 +350,7 @@ class SafeClassicRegisterForm(ClassicRegisterForm):
     """
     def __init__(self, *args, **kwargs):
         super(SafeClassicRegisterForm, self).__init__(*args, **kwargs)
-        self.fields['recaptcha'] = AskbotReCaptchaField()
+        self.fields['recaptcha'] = SweetCaptchaField()
 
 
 class ChangePasswordForm(forms.Form):
@@ -421,6 +423,7 @@ class AccountRecoveryForm(forms.Form):
     this form merely checks that entered email
     """
     email = forms.EmailField()
+    recaptcha = SweetCaptchaField()
 
     def clean_email(self):
         """check if email exists in the database
