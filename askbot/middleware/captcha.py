@@ -47,7 +47,7 @@ class CaptchaMiddleware(object):
         imagefile = StringIO() 
         txt.save(imagefile, format='JPEG')
         imagedata = imagefile.getvalue()
-        response = HttpResponse("<p>To ensure you are not a robot, please enter the text on the image:</p><input id='ans'/><img src='"+"data:image/jpeg;base64," + base64.b64encode(imagedata)+"' /><input type=button onclick='document.cookie=\"robotans=\"+document.getElementById(\"ans\").value;window.location.reload();' value=go>")
+        response = HttpResponse("<p>To ensure you are not a robot, please enter the text on the image:</p><input id='ans'/><img src='"+"data:image/jpeg;base64," + base64.b64encode(imagedata)+"' /><input type=button onclick='document.cookie=\"robotans=\"+document.getElementById(\"ans\").value+\";expires=Thu, 01-Jan-2038 00:00:01 GMT;path=/\";window.location.reload();' value=go>")
         response.set_cookie("robotask", ask)
         return response
         # print (request.META['REMOTE_ADDR'])

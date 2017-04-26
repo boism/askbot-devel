@@ -95,7 +95,6 @@
                             placeholder="{% trans %}Password{% endtrans %}">
                     </div>
                 </div>
-                {{ main_macros.form_field_with_errors(login_form.recaptcha) }}
                 <p id="local_login_buttons">
                     <input class="button" name="login_with_password" type="submit" value="{% trans %}Sign in{% endtrans %}" />
                     {% if settings.USE_LDAP_FOR_PASSWORD_LOGIN == False and settings.NEW_REGISTRATIONS_DISABLED == False %}
