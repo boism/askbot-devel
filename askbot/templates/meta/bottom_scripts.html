@@ -129,11 +129,6 @@
             animateHashes();
         }
 
-        if (searchInput) {
-            searchInput.focus();
-            putCursorAtEnd(searchInput);
-        }
-
         var haveFullTextSearchTab = inArray(activeTab, ['questions', 'badges', 'ask']);
         var haveUserProfilePage = $('body').hasClass('user-profile-page');
         if ((haveUserProfilePage || haveFullTextSearchTab) && searchInput && searchInput.length) {
