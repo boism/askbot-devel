@@ -20,21 +20,26 @@ class CaptchaMiddleware(object):
 
     def process_request(self, request):
         # print request.COOKIES
+        if request.META.has_key('HTTP_X_FORWARDED_FOR'):  
+            ip =  request.META['HTTP_X_FORWARDED_FOR']  
+        else:  
+            ip = request.META['REMOTE_ADDR']          
+
         if 'robotask' in request.COOKIES and 'robotans' in request.COOKIES:
             ask = request.COOKIES['robotask']
             ans = request.COOKIES['robotans']
-            if get_md5_value("_bigbobo_"+ask)[0:8] == ans :
+            if get_md5_value("_big_bobo_"+ask+ip)[0:8] == ans :
                 return None
-        if 'robotask' in COOKIES:
-            del COOKIES['robotask']
-        if 'robotans' in COOKIES:
-            del COOKIES['robotans']
+        if 'robotask' in request.COOKIES:
+            del request.COOKIES['robotask']
+        if 'robotans' in request.COOKIES:
+            del request.COOKIES['robotans']
+        candidates = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ+-=~!@#$%^&*(){}|\\:;'\"<>?/.,"
+        ask = ''.join(random.choice(candidates) for x in range(5))
+        ans = get_md5_value("_big_bobo_"+ask+ip)[0:8]
 
-        ask = ''.join(random.choice(string.string.printable[:94]) for x in range(5))
-        ans = get_md5_value("_bigbobo_"+ask)[0:8]
 
-
-        txt = Image.new('RGBA', (120, 20), (0,0,0,0))
+        txt = Image.new('RGBA', (120, 26), (0,102,0,0))
 
         # get a font
         fnt = ImageFont.truetype('/usr/share/fonts/dejavu/DejaVuSans.ttf', 20)
@@ -51,7 +56,7 @@ class CaptchaMiddleware(object):
         imagefile = StringIO()
         txt.save(imagefile, format='JPEG')
         imagedata = imagefile.getvalue()
-        response = HttpResponse("<p>To ensure you are not a robot, please enter the text on the image:</p><input id='ans'/><img src='"+"data:image/jpeg;base64," + base64.b64encode(imagedata)+"' /><input type=button onclick='document.cookie=\"robotans=\"+document.getElementById(\"ans\").value+\";expires=Thu, 01-Jan-2038 00:00:01 GMT;path=/\";window.location.reload();' value=go>")
+        response = HttpResponse("<link rel='shortcut icon' href='/upfiles/favcon11.ico'><p>your ip is:"+ip+"</p><h2>To ensure you are not a robot, please enter the text on the image:</h2><input style='font-size:20px' id='ans'/><img src='"+"data:image/jpeg;base64," + base64.b64encode(imagedata)+"' /><input style='font-size:28px' type=button onclick='document.cookie=\"robotans=\"+document.getElementById(\"ans\").value+\";expires=Thu, 01-Jan-2038 00:00:01 GMT;path=/\";window.location.reload();' value=go>")
         response.set_cookie("robotask", ask)
         return response
         # print (request.META['REMOTE_ADDR'])
