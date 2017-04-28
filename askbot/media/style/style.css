@@ -5353,7 +5353,7 @@ td.setting-input textarea {
   .short-summary .counts .item-count {
     padding: 0px 1px 0px 1px;
     font-size: 20px;
-    font-family: "Microsoft YaHei", STXihei, serif;
+    font-family: 'Open Sans Condensed', Arial, sans-serif;
   }
   .short-summary .counts .votes div,
   .short-summary .counts .views div,
