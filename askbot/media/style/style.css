@@ -5102,7 +5102,7 @@ td.setting-input textarea {
   #homeButton {
     border-right: #afaf9e 1px solid;
     height: 45px;
-    width: 35px;
+    width: 40px;
     display: block;
     float: left;
     border-radius:  10px;
@@ -5111,7 +5111,7 @@ td.setting-input textarea {
     color: #7a7a7b;
     font-size: 26px;
     line-height: 45px;
-    margin-left: 5px;
+    margin-left: 8px;
     margin-right: 5px;
   }
   #searchBar input[type="button"].cancelSearchBtn {
