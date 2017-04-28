@@ -891,10 +891,14 @@ input[type="button"].cancelSearchBtn {
 .cancelSearchBtn:hover {
   color: #d84040;
 }
+.create-password-account {
+  padding: 4px;
+}
 button,
 input[type="submit"],
 input[type="button"],
 input[type="reset"],
+.create-password-account,
 .button,
 .btn {
   border: 0 !important;
@@ -1428,7 +1432,7 @@ ul#searchTags {
 }
 .short-summary .counts {
   float: right;
-  margin: 4px 0 0 5px;
+  margin: 0px 0px 0px 0px;
   font-family: "Microsoft YaHei", STXihei, serif;
 }
 .short-summary .counts .item-count {
@@ -5349,15 +5353,15 @@ td.setting-input textarea {
   .short-summary .counts .item-count {
     padding: 0px 1px 0px 1px;
     font-size: 20px;
-    font-family: 'Open Sans Condensed', Arial, sans-serif;
+    font-family: "Microsoft YaHei", STXihei, serif;
   }
   .short-summary .counts .votes div,
   .short-summary .counts .views div,
   .short-summary .counts .answers div,
   .short-summary .counts .favorites div {
-    margin-top: 0px;
-    font-size: 12px;
-    line-height: 12px;
+    margin-top: 1px;
+    font-size: 10px;
+    line-height: 10px;
     color: #646464;
   }
   .short-summary .accepted .item-count {
@@ -5373,7 +5377,7 @@ td.setting-input textarea {
   .short-summary .votes {
     height: 40px;
     width: 40px;
-    padding: 5px 0px 0px 0px;
+    padding: 5px 5px 5px 5px;
     margin: 0 2px;
     border-radius: 20px;
   }
@@ -5498,6 +5502,7 @@ td.setting-input textarea {
   .user-profile-edit-page input[type="text"],
   .user-profile-page input[type="text"] {
     width: 100%;
+    margin-bottom: 5px;
   }
 }
 @media screen and (max-width: 380px) {
