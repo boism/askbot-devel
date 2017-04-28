@@ -237,8 +237,6 @@ FullTextSearch.prototype.renderFullTextSearchResult = function (data) {
         askHrefBase + data.query_data.ask_query_string
     ); /* INFO: ask_query_string should already be URL-encoded! */
 
-    this._query.focus();
-
     var old_list = $('#' + this._q_list_sel);
     var new_list = $('<div></div>').hide().html(data.questions);
     new_list.find('.timeago').timeago();
