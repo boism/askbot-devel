@@ -24,11 +24,11 @@
                 {% if tab_id == 'used' %}class="on"{% endif %}
                 title="{% trans %}sorted by frequency of tag use{% endtrans %}"
             ><span>{% trans %}by popularity{% endtrans %}</span></a>
-            {% if settings.ENABLE_TAG_MODERATION 
+            {% if settings.ENABLE_TAG_MODERATION
                 and request.user.is_authenticated()
                 and request.user.is_administrator_or_moderator()
             %}
-                <a 
+                <a
                     href="{% url list_suggested_tags %}"
                     {% if tab_id == 'suggested' %}class="on"{% endif %}
                     title="{% trans %}suggested{% endtrans %}"
