@@ -1,7 +1,8 @@
 {% if active_tab != "ask" %}
 {% spaceless %}
-<div
-    class="{% if query %} cancelable{% endif %}"
+<div 
+    id="searchBar"
+    class="search-bar{% if query %} cancelable{% endif %}"
 >
     {# url action depends on which tab is active #}
     {% if active_tab == "tags" %}
@@ -10,15 +11,24 @@
     {% elif active_tab == "users" %}
         <input type="hidden" name="t" value="user"/>
     {% endif %}
-    <input class="form-control mr-sm-2"
-        type="text"
+    <input 
+        class="searchInput" 
+        type="text" 
         autocomplete="off"
-        value="{{ query|default_if_none('')|escape }}"
-        name="query"
-        placeholder="{% trans %}搜索{% endtrans %}"
+        value="{{ query|default_if_none('')|escape }}" 
+        name="query" 
+        placeholder="{% trans %}Search or ask your question{% endtrans %}"
         id="keywords"
     />
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <input type="submit" value="" name="search" class="searchBtn" />
+    <input type="button"
+        value="X"
+        name="reset_query"
+        class="cancelSearchBtn"
+        {% if not query %}{# query is only defined by questions view (active_tab) #}
+            style="display: none;"
+        {% endif %}
+    />
 </div>
 {% endspaceless %}
 {% endif %}

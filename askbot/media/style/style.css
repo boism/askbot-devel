@@ -380,7 +380,7 @@ body.user-messages {
 }
 .content-wrapper {
   /* wrapper positioning class */
-
+  
   width: 960px;
   margin: auto;
   position: relative;
@@ -456,7 +456,7 @@ body.user-messages {
 }
 #userToolsNav {
   /* Navigation bar containing login link or user information, check widgets/user_navigation.html*/
-
+  
   height: 20px;
   padding-bottom: 5px;
   white-space: nowrap;
@@ -513,10 +513,10 @@ body.user-messages {
 }
 #metaNav {
   /* Top Navigation bar containing links for tags, people and badges, check widgets/header.html */
-
+  
   float: right;
   /* for #header.with-logo it is modified */
-
+  
   margin-right: 7px;
 }
 #metaNav a {
@@ -1021,7 +1021,7 @@ form.ajax-file-upload img.spinner {
 }
 #askButton {
   /* check blocks/secondary_header.html and widgets/ask_button.html*/
-
+  
   float: right;
   font-size: 20px;
   height: 42px;
@@ -1127,7 +1127,7 @@ body.anon.ask-page .search-drop-menu {
 .box #displayTagFilterControl label,
 .box #emailTagFilterControl label {
   /*Especial width just for the tag filter boxes in index page*/
-
+  
   width: 160px;
 }
 .box ul {
@@ -1557,7 +1557,7 @@ ul#searchTags {
 }
 .paginator .curr {
   /*background-color: #8ebcc7;*/
-
+  
   color: #fff;
   font-weight: bold;
 }
@@ -1764,7 +1764,7 @@ ul.js-related-tags li {
 .moderate-tags-page td.per-thread-controls {
   width: 160px;
   /* 20px more to compensate for the padding */
-
+  
   height: 30px;
 }
 .moderate-tags-page td.per-thread-controls button {
@@ -1872,7 +1872,7 @@ ul.js-related-tags li {
   padding-left: 5px;
   width: 100%;
   /*719px;*/
-
+  
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2150,7 +2150,7 @@ a.js-question-body-trigger {
 }
 #editor {
   /* adjustment for editor preview */
-
+  
   display: block;
   font-size: 100%;
   min-height: 210px;
@@ -2254,7 +2254,7 @@ tr.mceLast {
 .preview-toggle {
   color: #b6a475;
   /*letter-spacing:1px;*/
-
+  
   line-height: 28px;
   text-align: left;
   width: 100%;
@@ -3030,7 +3030,7 @@ tr.mceLast {
   width: 25px;
   margin-right: 13px;
   /* small IE fixes */
-
+  
   *margin: 0;
   *height: 210px;
   *width: 30px;
@@ -3604,7 +3604,7 @@ a:hover.medal {
   color: #777;
   line-height: 40px;
   /*letter-spacing:0px*/
-
+  
   margin-top: 3px;
 }
 .vote-count {
@@ -3772,7 +3772,7 @@ body.main-page ins {
   /* a hack for google adwords
    * todo: make rule above more specific
    * and remove this one */
-
+  
   background: transparent;
 }
 /* ----- Red Popup notification ----- */
@@ -4119,12 +4119,12 @@ button::-moz-focus-inner {
 .submit {
   cursor: pointer;
   /*letter-spacing:1px;*/
-
+  
   background-color: #D4D0C8;
   height: 30px;
   border: 1px solid #777777;
   /*	width:100px; */
-
+  
   font-weight: bold;
   font-size: 120%;
 }
@@ -4170,7 +4170,7 @@ button::-moz-focus-inner {
 }
 .orange {
   /* used in django.po */
-
+  
   color: #d64000;
   font-weight: bold;
 }
@@ -4216,7 +4216,7 @@ button::-moz-focus-inner {
   padding: 3px 5px 3px 5px;
   background-color: #fff380;
   /* nice yellow */
-
+  
   font-weight: normal;
   -moz-border-radius: 5px;
   -khtml-border-radius: 5px;
@@ -4763,7 +4763,7 @@ textarea.tipped-input {
   margin: 9px 0 0 -6px;
   -webkit-box-shadow: none;
   /* undo bootstrap glow */
-
+  
   -moz-box-shadow: none;
   padding: 0 0 0 6px;
 }
@@ -5001,7 +5001,7 @@ td.setting-input textarea {
 
 @media screen and (max-width: 960px) {
   /* content margins touch viewport */
-
+  
   * {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -5065,7 +5065,7 @@ td.setting-input textarea {
     padding: 0;
   }
   /* overall style changes */
-
+  
   #logo img {
     padding: 2px 8px 8px 8px;
     height: 65px;
@@ -5079,7 +5079,7 @@ td.setting-input textarea {
   }
   #userToolsNav {
     /* Navigation bar containing login link or user information, check widgets/user_navigation.html*/
-
+    
     height: 22px;
     padding-bottom: 8px;
     white-space: nowrap;
@@ -5337,7 +5337,7 @@ td.setting-input textarea {
     margin: 0px 10px 0 0;
   }
   /* front page short summary */
-
+  
   .short-summary .counts .views,
   .short-summary .counts .votes,
   .short-summary .userinfo {

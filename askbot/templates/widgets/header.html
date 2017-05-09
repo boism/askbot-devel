@@ -1,14 +1,25 @@
+<!-- template header.html -->
+{% import "macros.html" as macros %}
 <nav class="remove-all-styles navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse">
     <a class="remove-all-styles navbar-brand" href="{% if settings.LOGO_DESTINATION_URL %}{{ settings.LOGO_DESTINATION_URL }}{% else %}{% url questions %}{% endif %}">
         <img src="{{ settings.SITE_LOGO_URL|media }}" alt="{% trans site=settings.APP_SHORT_NAME %}{{site}} logo{% endtrans %}" width="30" height="30">
     </a>
     <div class="remove-all-styles collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="form-inline my-2 my-lg-0">
+        {# form is wrapping search buttons and the search bar inputs #}
+        {% set enabled_scopes_class = 'scopes-' + 
+            '%s'|format(settings.ALL_SCOPE_ENABLED) + '-' +
+            '%s'|format(settings.UNANSWERED_SCOPE_ENABLED) + '-' +
+            '%s'|format((request.user.is_authenticated() and settings.FOLLOWED_SCOPE_ENABLED))
+        %}
+        <form {% if active_tab=="tags" %} action="{% url tags %}" {% elif page_class=='user-profile-page' %} action="{% url questions %}"
+            id="searchForm" {% elif active_tab=="users" %} action="" {% else %} action="{% url questions %}" id="searchForm"
+            {% endif %} class="form-inline my-2 my-lg-0" method="get">
             {% if active_tab == "tags" %}
             <input type="hidden" name="t" value="tag" /> {% set query=stag %} {% elif active_tab == "users" %}
             <input type="hidden" name="t" value="user" /> {% endif %}
             <input class="remove-all-styles form-control mr-sm-2" type="text" autocomplete="off" value="{{ query|default_if_none('')|escape }}"
                 name="query" style="width:200px" placeholder="{% trans %}搜索{% endtrans %}">
+            <input type="submit" value="" name="search" class="searchBtn" />
             <button type="button" class="remove-all-styles btn btn-secondary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
         </form>
         <ul class="remove-all-styles navbar-nav mr-auto">
@@ -22,6 +33,27 @@
                 <a class="remove-all-styles nav-link" onclick="var tag = (window.location.href).match(/tags(?:\%3A|\:)([\s\S]*)\//); if(tag && tag[1]) this.href += (this.href.match(/\?/)?'&amp;':'?') + 'tags=' + tag[1];"
                     href="{{ search_state.full_ask_url() }}{% if group %}{% if '?' in search_state.full_ask_url() %}&amp;{% else %}?{% endif %}group_id={{ group.id }}{% endif %}">提问</a>{%
                 endif %}</li>
+            {%- macro moderation_items_link(user, moderation_items) -%} {% if moderation_items %}
+            <li><a class="remove-all-styles" href="{% url moderation_queue %}">
+        {% if moderation_items['new_count'] > 0 %}
+            <i class="fa fa-bell" aria-hidden="true"></i>
+            {% if moderation_items['seen_count'] > 0 %}
+                alt="{% trans new=moderation_items['new_count'], seen=moderation_items['seen_count']%}{{new}} new flagged posts and {{seen}} previous{% endtrans %}"
+                title="{% trans new=moderation_items['new_count'], seen=moderation_items['seen_count']%}{{new}} new flagged posts and {{seen}} previous{% endtrans %}"
+            {% else %}
+                alt="{% trans new=moderation_items['new_count'] %}{{new}} new flagged posts{% endtrans %}"
+                title="{% trans new=moderation_items['new_count'] %}{{new}} new flagged posts{% endtrans %}"
+            {% endif %}
+            />
+        {% elif moderation_items['seen_count'] > 0 %}
+            <img src={{'/images/dialog-warning-off.png'|media}} 
+                alt="{% trans seen=moderation_items['seen_count'] %}{{seen}} flagged posts{% endtrans %}" 
+                title="{% trans seen=moderation_items['seen_count'] %}{{seen}} flagged posts{% endtrans %}" 
+            />
+        {% endif %}
+        </a>
+            </li> {% endif %} {%- endmacro -%}
+
         </ul>
         {%- if request.user.is_authenticated() -%}
         <li class="remove-all-styles nav-item dropdown">
@@ -44,13 +76,10 @@
                     <span class="badgecount">{{user.bronze}}</span>
                     {%- endif -%}
                 </span></a>
-                <a class="remove-all-styles dropdown-item" href="{% url " help " %}" title="{% trans %}help{% endtrans %}">{% trans %}help{% endtrans %}</a>
-                <a class="remove-all-styles dropdown-item" href="{{ settings.LOGOUT_URL }}?next={{ settings.LOGOUT_REDIRECT_URL }}">{% trans %}sign out{% endtrans %}</a>
+                <a class="remove-all-styles dropdown-item" href="{{ settings.LOGOUT_URL }}?next={{ settings.LOGOUT_REDIRECT_URL }}">{% trans %}登出{% endtrans %}</a>
             </div>
         </li>
-        {% elif settings.USE_ASKBOT_LOGIN_SYSTEM and not on_login_page %} 
-            {% include "widgets/login_link.html" %} 
-        {% endif %}
-
+        {% elif settings.USE_ASKBOT_LOGIN_SYSTEM and not on_login_page %} {% include "widgets/login_link.html" %} {% endif %}
     </div>
 </nav>
+<!-- end template header.html -->
