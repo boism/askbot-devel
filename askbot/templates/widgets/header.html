@@ -1,26 +1,35 @@
 <!-- template header.html -->
 {% import "macros.html" as macros %}
-<nav class="remove-all-styles navbar sticky-top navbar-toggleable-md navbar-inverse bg-inverse">
+<nav class="remove-all-styles navbar sticky-top navbar-toggleable-sm navbar-inverse bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
     <a class="remove-all-styles navbar-brand" href="{% if settings.LOGO_DESTINATION_URL %}{{ settings.LOGO_DESTINATION_URL }}{% else %}{% url questions %}{% endif %}">
         <img src="{{ settings.SITE_LOGO_URL|media }}" alt="{% trans site=settings.APP_SHORT_NAME %}{{site}} logo{% endtrans %}" width="30" height="30">
     </a>
     <div class="remove-all-styles collapse navbar-collapse" id="navbarSupportedContent">
-        {# form is wrapping search buttons and the search bar inputs #}
-        {% set enabled_scopes_class = 'scopes-' + 
-            '%s'|format(settings.ALL_SCOPE_ENABLED) + '-' +
-            '%s'|format(settings.UNANSWERED_SCOPE_ENABLED) + '-' +
-            '%s'|format((request.user.is_authenticated() and settings.FOLLOWED_SCOPE_ENABLED))
+        {# form is wrapping search buttons and the search bar inputs #} {% set enabled_scopes_class = 'scopes-' + '%s'|format(settings.ALL_SCOPE_ENABLED)
+        + '-' + '%s'|format(settings.UNANSWERED_SCOPE_ENABLED) + '-' + '%s'|format((request.user.is_authenticated() and settings.FOLLOWED_SCOPE_ENABLED))
         %}
         <form {% if active_tab=="tags" %} action="{% url tags %}" {% elif page_class=='user-profile-page' %} action="{% url questions %}"
             id="searchForm" {% elif active_tab=="users" %} action="" {% else %} action="{% url questions %}" id="searchForm"
             {% endif %} class="form-inline my-2 my-lg-0" method="get">
-            {% if active_tab == "tags" %}
+            {# url action depends on which tab is active #} {% if active_tab == "tags" %}
             <input type="hidden" name="t" value="tag" /> {% set query=stag %} {% elif active_tab == "users" %}
             <input type="hidden" name="t" value="user" /> {% endif %}
             <input class="remove-all-styles form-control mr-sm-2" type="text" autocomplete="off" value="{{ query|default_if_none('')|escape }}"
-                name="query" style="width:200px" placeholder="{% trans %}搜索{% endtrans %}">
-            <input type="submit" value="" name="search" class="searchBtn" />
-            <button type="button" class="remove-all-styles btn btn-secondary" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                name="query" style="width:200px" placeholder="{% trans %}搜索{% endtrans %}" id="keywords">
+            <input type="submit" value="" name="search" class="" style="
+                font-family: FontAwesome;
+                font-size: 1.3333333333333333em;
+                height:32px;
+                width:32px;
+                border: none;
+                cursor: pointer;
+                color:white;
+                background-color:black;
+                position:relative;" value="&#xf002;" />
         </form>
         <ul class="remove-all-styles navbar-nav mr-auto">
             <li class="remove-all-styles nav-item {% if active_tab == 'all' %}active{% endif %}"><a class="nav-link" href="{% url questions %}">首页</a></li>
@@ -33,26 +42,10 @@
                 <a class="remove-all-styles nav-link" onclick="var tag = (window.location.href).match(/tags(?:\%3A|\:)([\s\S]*)\//); if(tag && tag[1]) this.href += (this.href.match(/\?/)?'&amp;':'?') + 'tags=' + tag[1];"
                     href="{{ search_state.full_ask_url() }}{% if group %}{% if '?' in search_state.full_ask_url() %}&amp;{% else %}?{% endif %}group_id={{ group.id }}{% endif %}">提问</a>{%
                 endif %}</li>
-            {%- macro moderation_items_link(user, moderation_items) -%} {% if moderation_items %}
-            <li><a class="remove-all-styles" href="{% url moderation_queue %}">
-        {% if moderation_items['new_count'] > 0 %}
-            <i class="fa fa-bell" aria-hidden="true"></i>
-            {% if moderation_items['seen_count'] > 0 %}
-                alt="{% trans new=moderation_items['new_count'], seen=moderation_items['seen_count']%}{{new}} new flagged posts and {{seen}} previous{% endtrans %}"
-                title="{% trans new=moderation_items['new_count'], seen=moderation_items['seen_count']%}{{new}} new flagged posts and {{seen}} previous{% endtrans %}"
-            {% else %}
-                alt="{% trans new=moderation_items['new_count'] %}{{new}} new flagged posts{% endtrans %}"
-                title="{% trans new=moderation_items['new_count'] %}{{new}} new flagged posts{% endtrans %}"
-            {% endif %}
-            />
-        {% elif moderation_items['seen_count'] > 0 %}
-            <img src={{'/images/dialog-warning-off.png'|media}} 
-                alt="{% trans seen=moderation_items['seen_count'] %}{{seen}} flagged posts{% endtrans %}" 
-                title="{% trans seen=moderation_items['seen_count'] %}{{seen}} flagged posts{% endtrans %}" 
-            />
-        {% endif %}
-        </a>
-            </li> {% endif %} {%- endmacro -%}
+            <li id="userToolsNav" class="remove-all-styles nav-link" style="padding-top:11px;">
+                {% include "widgets/user_navigation.html" %} {% if settings.MULTILINGUAL %} {% include "widgets/language_nav.html" %} {%
+                endif %}
+            </li>
 
         </ul>
         {%- if request.user.is_authenticated() -%}
