@@ -1,28 +1,78 @@
 <!-- template header.html -->
 {% import "macros.html" as macros %}
-<div 
-    id="header"
-    class="{% if settings.SHOW_LOGO %}with-logo{% else %}without-logo{% endif %}"
->
-    <div class="content-wrapper">
-        <div id="userToolsNav">
-            {% include "widgets/user_navigation.html" %}
-            {% if settings.MULTILINGUAL %}
-                {% include "widgets/language_nav.html" %}
-            {% endif %}
-        </div>
-        {% if settings.SHOW_LOGO %}
-            {% include "widgets/logo.html" %}
-        {% endif %}
-        <div id="metaNav">
-            {% include "widgets/meta_nav.html" %}
-        </div>
-        <div class="clean"></div>
+<nav class="remove-all-styles navbar sticky-top navbar-toggleable-sm navbar-inverse bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <a class="remove-all-styles navbar-brand" href="{% if settings.LOGO_DESTINATION_URL %}{{ settings.LOGO_DESTINATION_URL }}{% else %}{% url questions %}{% endif %}">
+        <img src="{{ settings.SITE_LOGO_URL|media }}" alt="{% trans site=settings.APP_SHORT_NAME %}{{site}} logo{% endtrans %}" width="30" height="30">
+    </a>
+    <div class="remove-all-styles collapse navbar-collapse" id="navbarSupportedContent">
+        {# form is wrapping search buttons and the search bar inputs #} {% set enabled_scopes_class = 'scopes-' + '%s'|format(settings.ALL_SCOPE_ENABLED)
+        + '-' + '%s'|format(settings.UNANSWERED_SCOPE_ENABLED) + '-' + '%s'|format((request.user.is_authenticated() and settings.FOLLOWED_SCOPE_ENABLED))
+        %}
+        <form {% if active_tab=="tags" %} action="{% url tags %}" {% elif page_class=='user-profile-page' %} action="{% url questions %}"
+            id="searchForm" {% elif active_tab=="users" %} action="" {% else %} action="{% url questions %}" id="searchForm"
+            {% endif %} class="form-inline my-2 my-lg-0" method="get">
+            {# url action depends on which tab is active #} {% if active_tab == "tags" %}
+            <input type="hidden" name="t" value="tag" /> {% set query=stag %} {% elif active_tab == "users" %}
+            <input type="hidden" name="t" value="user" /> {% endif %}
+            <input class="remove-all-styles form-control mr-sm-2" type="text" autocomplete="off" value="{{ query|default_if_none('')|escape }}"
+                name="query" style="width:200px" placeholder="{% trans %}搜索{% endtrans %}" id="keywords">
+            <input type="submit" value="" name="search" class="" style="
+                font-family: FontAwesome;
+                font-size: 1.3333333333333333em;
+                height:32px;
+                width:32px;
+                border: none;
+                cursor: pointer;
+                color:white;
+                background-color:black;
+                position:relative;" value="&#xf002;" />
+        </form>
+        <ul class="remove-all-styles navbar-nav mr-auto">
+            <li class="remove-all-styles nav-item {% if active_tab == 'all' %}active{% endif %}"><a class="nav-link" href="{% url questions %}">首页</a></li>
+            <li class="remove-all-styles nav-item {% if active_tab == 'tags' %}active{% endif %}"><a class="nav-link" href="{% url tags %}">标签</a></li>
+            <li class="remove-all-styles nav-item {% if active_tab=='users' %} active {% endif %}"><a class="nav-link" href="{% url users %}">用户</a></li>
+            <li class="remove-all-styles nav-item {% if active_tab=='badges' %} active {% endif %}"><a class="nav-link" href="{% url badges %}">奖章</a></li>
+            <li class="remove-all-styles nav-item ">
+                {% if active_tab != "ask" %} {% if not search_state %} {# get empty SearchState() if there's none #} {% set search_state=search_state|get_empty_search_state
+                %} {% endif %}
+                <a class="remove-all-styles nav-link" onclick="var tag = (window.location.href).match(/tags(?:\%3A|\:)([\s\S]*)\//); if(tag && tag[1]) this.href += (this.href.match(/\?/)?'&amp;':'?') + 'tags=' + tag[1];"
+                    href="{{ search_state.full_ask_url() }}{% if group %}{% if '?' in search_state.full_ask_url() %}&amp;{% else %}?{% endif %}group_id={{ group.id }}{% endif %}">提问</a>{%
+                endif %}</li>
+            <li id="userToolsNav" class="remove-all-styles nav-link" style="padding-top:11px;">
+                {% include "widgets/user_navigation.html" %} {% if settings.MULTILINGUAL %} {% include "widgets/language_nav.html" %} {%
+                endif %}
+            </li>
+
+        </ul>
+        {%- if request.user.is_authenticated() -%}
+        <li class="remove-all-styles nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">{{ user.username|escape }}({{ user.get_localized_profile().get_reputation() }})
+            </a>
+            <div class="remove-all-styles dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left:-50px;">
+                <a class="remove-all-styles dropdown-item" href="{{user.get_absolute_url()}}?sort=reputation" data-fetch-data-url="{% url 'get_perms_data' %}"
+                    data-url="{% url 'get_perms_data' %}">{% trans %}karma:{% endtrans %} {{ user.get_localized_profile().get_reputation() }}</a>
+                <a class="remove-all-styles dropdown-item" href="{{ user.get_absolute_url() }}#badges"><span title="{{ user.get_badge_summary() }}">{% trans %}奖章:{% endtrans %}
+                    {% if user.gold %}
+                    <span class='badge1'>&#9679;</span>
+                    <span class="badgecount">{{user.gold}}</span>
+                    {% endif %}
+                    {% if user.silver %}
+                    <span class='badge2'>&#9679;</span>
+                    <span class="badgecount">{{user.silver}}</span>
+                    {% endif %}
+                    {% if user.bronze %}
+                    <span class='badge3'>&#9679;</span>
+                    <span class="badgecount">{{user.bronze}}</span>
+                    {%- endif -%}
+                </span></a>
+                <a class="remove-all-styles dropdown-item" href="{{ settings.LOGOUT_URL }}?next={{ settings.LOGOUT_REDIRECT_URL }}">{% trans %}登出{% endtrans %}</a>
+            </div>
+        </li>
+        {% elif settings.USE_ASKBOT_LOGIN_SYSTEM and not on_login_page %} {% include "widgets/login_link.html" %} {% endif %}
     </div>
-    {% if settings.READ_ONLY_MODE_ENABLED %}
-        <div class="content-wrapper system-messages">
-            {{ settings.READ_ONLY_MESSAGE }}
-        </div>
-    {% endif %}
-</div>
+</nav>
 <!-- end template header.html -->
