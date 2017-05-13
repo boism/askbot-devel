@@ -781,7 +781,7 @@ def user_recent(request, user, context):
                 # don't know what to do here...
                 event_title = ''
                 event_summary = ''
-                
+
             event = Event(
                 time=activity.active_at,
                 type=activity.activity_type,
@@ -1032,8 +1032,8 @@ def user_reputation(request, user, context):
                                         'question',
                                         'question__thread',
                                         'user'
-                                    )
-                                    
+                                    ).order_by('-reputed_at')
+
 
     def format_graph_data(raw_data, user):
         # prepare data for the graph - last values go in first
