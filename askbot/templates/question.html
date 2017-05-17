@@ -270,8 +270,7 @@
                 }
 
                 if (//maybe remove "delete" button
-                    (data['userReputation'] <
-                    {{settings.MIN_REP_TO_DELETE_OTHERS_COMMENTS}}) || data['userIsReadOnly']
+                    data['userIsReadOnly']
                 ) {
                     removeNode(deleteBtn);
                 }

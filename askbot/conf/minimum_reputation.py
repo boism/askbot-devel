@@ -2,6 +2,7 @@
 Settings for minimum reputation required for
 a variety of actions on the askbot askbot
 """
+import sys
 from django.utils.translation import ugettext_lazy as _
 from askbot.conf.settings_wrapper import settings
 from askbot.conf.super_groups import REP_AND_BADGES
@@ -101,7 +102,7 @@ settings.register(
     livesettings.IntegerValue(
         MIN_REP,
         'MIN_REP_TO_DELETE_OTHERS_POSTS',
-        default=500,
+        default=sys.maxint,
         description=_('Delete questions and answers posted by others')
     )
 )
