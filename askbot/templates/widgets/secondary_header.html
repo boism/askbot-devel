@@ -1,45 +1,51 @@
 <!-- template secondary_header.html -->
-<div id="secondaryHeader">
-    <div class="content-wrapper">
-        {# form is wrapping search buttons and the search bar inputs #}
-        {% set enabled_scopes_class = 'scopes-' + 
-            '%s'|format(settings.ALL_SCOPE_ENABLED) + '-' +
-            '%s'|format(settings.UNANSWERED_SCOPE_ENABLED) + '-' +
-            '%s'|format((request.user.is_authenticated() and settings.FOLLOWED_SCOPE_ENABLED))
-        %}
-        <form
-            {% if active_tab == "tags" %}
-                action="{% url tags %}" 
-            {% elif page_class == 'user-profile-page' %}
-                action="{% url questions %}" id="searchForm"
-            {% elif active_tab == "users" %}
-                action="" 
-            {% else %}
-                action="{% url questions %}" id="searchForm"
+<nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed mt15" data-toggle="collapse" data-target="#collapseHeader"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            {# form is wrapping search buttons and the search bar inputs #}
+            {% set enabled_scopes_class = 'scopes-' +
+                '%s'|format(settings.ALL_SCOPE_ENABLED) + '-' +
+                '%s'|format(settings.UNANSWERED_SCOPE_ENABLED) + '-' +
+                '%s'|format((request.user.is_authenticated() and settings.FOLLOWED_SCOPE_ENABLED)) %}
+
+
+            {# width 1 means that cell will expand just enough to fit the contents #}
+            <ul class="nav navbar-nav pull-left">
+                <li class="pull-left ml15"><a href="{% url questions %}"><span class="glyphicon glyphicon-home"></span></a>
+                </li>
+                {% include "widgets/scope_nav.html" %}
+                {# width * means that the cell takes the remaining table width #}
+            </ul>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="collapseHeader">
+            <form
+                {% if active_tab == "tags" %}
+                    action="{% url tags %}"
+                {% elif page_class == 'user-profile-page' %}
+                    action="{% url questions %}"
+                {% elif active_tab == "users" %}
+                    action=""
+                {% else %}
+                    action="{% url questions %}"
+                {% endif %}
+                    class="navbar-form navbar-left"
+                    method="get">
+                <span>{% include "widgets/search_bar.html" %}</span>
+            </form>
+            {% if settings.ASK_BUTTON_ENABLED %}
+                <span>
+                {% include "widgets/ask_button.html" %}
+            </span>
             {% endif %}
-            class="{{ enabled_scopes_class }}"
-            method="get">
-            {# 
-                A single row table to help the semi-fixed width layout where:
-                * all cells have "tight width" without linebreaks
-                * except that the search bar cell takes the remaining width
-                We had hard time making this layout work without tables.
-                Please suggest if there is a better way.
-            #}
-            <table width="100%">
-                <tr>
-                    {# width 1 means that cell will expand just enough to fit the contents #}
-                    <td width="1"><a id="homeButton" href="{% url questions %}"><i class="fa fa-home"></i></a></td>
-                    <td width="1">{% include "widgets/scope_nav.html" %}</td>
-                    {# width * means that the cell takes the remaining table width #}
-                    <td width="*" class="search-bar">{% include "widgets/search_bar.html" %}</td> 
-                    {% if settings.ASK_BUTTON_ENABLED %}
-                    <td width="1">
-                        {% include "widgets/ask_button.html" %}            
-                    </td>
-                    {% endif %}
-                </tr>
-            </table>
-        </form>
+        </div>
     </div>
-</div>
+</nav>

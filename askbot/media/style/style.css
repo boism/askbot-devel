@@ -89,7 +89,6 @@ input:focus {
   outline: none;
 }
 input[type="email"],
-input[type="text"],
 input[type="password"],
 input[type="number"],
 select,
@@ -380,7 +379,7 @@ body.user-messages {
 }
 .content-wrapper {
   /* wrapper positioning class */
-  
+
   width: 960px;
   margin: auto;
   position: relative;
@@ -456,7 +455,7 @@ body.user-messages {
 }
 #userToolsNav {
   /* Navigation bar containing login link or user information, check widgets/user_navigation.html*/
-  
+
   height: 20px;
   padding-bottom: 5px;
   white-space: nowrap;
@@ -513,10 +512,10 @@ body.user-messages {
 }
 #metaNav {
   /* Top Navigation bar containing links for tags, people and badges, check widgets/header.html */
-  
+
   float: right;
   /* for #header.with-logo it is modified */
-  
+
   margin-right: 7px;
 }
 #metaNav a {
@@ -793,26 +792,30 @@ body.user-messages {
   color: #ccc;
 }
 input[type="submit"].searchBtn {
-  font-size: 10px;
-  color: #666;
-  background-color: #eee;
-  height: 41px;
-  border: #FFF 1px solid;
-  line-height: 22px;
-  text-align: center;
-  margin: 0;
-  width: 48px;
-  background: -98px -37px url(../images/sprites.png) no-repeat;
-  border-radius: 0;
-  -ms-border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  -khtml-border-radius: 0;
-  -webkit-box-shadow: 0 0 0 #929292;
-  -moz-box-shadow: 0 0 0 #929292;
-  box-shadow: 0 0 0 #929292;
-  cursor: pointer;
-  z-index: 10001;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    background:
+    url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIzMnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZXNjLz48ZGVmcy8+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSI+PGcgZmlsbD0iIzkyOTI5MiIgaWQ9Imljb24tMTExLXNlYXJjaCI+PHBhdGggZD0iTTE5LjQyNzExNjQsMjEuNDI3MTE2NCBDMTguMDM3MjQ5NSwyMi40MTc0ODAzIDE2LjMzNjY1MjIsMjMgMTQuNSwyMyBDOS44MDU1NzkzOSwyMyA2LDE5LjE5NDQyMDYgNiwxNC41IEM2LDkuODA1NTc5MzkgOS44MDU1NzkzOSw2IDE0LjUsNiBDMTkuMTk0NDIwNiw2IDIzLDkuODA1NTc5MzkgMjMsMTQuNSBDMjMsMTYuMzM2NjUyMiAyMi40MTc0ODAzLDE4LjAzNzI0OTUgMjEuNDI3MTE2NCwxOS40MjcxMTY0IEwyNy4wMTE5MTc2LDI1LjAxMTkxNzYgQzI3LjU2MjExODYsMjUuNTYyMTE4NiAyNy41NTc1MzEzLDI2LjQ0MjQ2ODcgMjcuMDExNzE4NSwyNi45ODgyODE1IEwyNi45ODgyODE1LDI3LjAxMTcxODUgQzI2LjQ0Mzg2NDgsMjcuNTU2MTM1MiAyNS41NTc2MjA0LDI3LjU1NzYyMDQgMjUuMDExOTE3NiwyNy4wMTE5MTc2IEwxOS40MjcxMTY0LDIxLjQyNzExNjQgTDE5LjQyNzExNjQsMjEuNDI3MTE2NCBaIE0xNC41LDIxIEMxOC4wODk4NTExLDIxIDIxLDE4LjA4OTg1MTEgMjEsMTQuNSBDMjEsMTAuOTEwMTQ4OSAxOC4wODk4NTExLDggMTQuNSw4IEMxMC45MTAxNDg5LDggOCwxMC45MTAxNDg5IDgsMTQuNSBDOCwxOC4wODk4NTExIDEwLjkxMDE0ODksMjEgMTQuNSwyMSBMMTQuNSwyMSBaIiBpZD0ic2VhcmNoIi8+PC9nPjwvZz48L3N2Zz4=)
+    no-repeat
+    center center;
 }
 .badge-list .placeholder {
   background: #aaa;
@@ -865,8 +868,7 @@ input[type="submit"].searchBtn {
   padding: 0 !important;
 }
 input[type="submit"].searchBtn:hover {
-  background-image: none;
-  background: #dddddd url(../images/sprites.png) no-repeat -146px -37px !important;
+  background-color: #dddddd !important;
 }
 input[type="button"].cancelSearchBtn {
   font-size: 30px !important;
@@ -954,7 +956,6 @@ input[type="reset"].large,
   padding: 0 10px;
 }
 button:hover,
-input[type="submit"]:hover,
 .button:hover,
 .btn:hover {
   background-position: 0 0 !important;
@@ -1021,7 +1022,7 @@ form.ajax-file-upload img.spinner {
 }
 #askButton {
   /* check blocks/secondary_header.html and widgets/ask_button.html*/
-  
+
   float: right;
   font-size: 20px;
   height: 42px;
@@ -1127,7 +1128,7 @@ body.anon.ask-page .search-drop-menu {
 .box #displayTagFilterControl label,
 .box #emailTagFilterControl label {
   /*Especial width just for the tag filter boxes in index page*/
-  
+
   width: 160px;
 }
 .box ul {
@@ -1557,7 +1558,7 @@ ul#searchTags {
 }
 .paginator .curr {
   /*background-color: #8ebcc7;*/
-  
+
   color: #fff;
   font-weight: bold;
 }
@@ -1764,7 +1765,7 @@ ul.js-related-tags li {
 .moderate-tags-page td.per-thread-controls {
   width: 160px;
   /* 20px more to compensate for the padding */
-  
+
   height: 30px;
 }
 .moderate-tags-page td.per-thread-controls button {
@@ -1872,7 +1873,7 @@ ul.js-related-tags li {
   padding-left: 5px;
   width: 100%;
   /*719px;*/
-  
+
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2150,7 +2151,7 @@ a.js-question-body-trigger {
 }
 #editor {
   /* adjustment for editor preview */
-  
+
   display: block;
   font-size: 100%;
   min-height: 210px;
@@ -2254,7 +2255,7 @@ tr.mceLast {
 .preview-toggle {
   color: #b6a475;
   /*letter-spacing:1px;*/
-  
+
   line-height: 28px;
   text-align: left;
   width: 100%;
@@ -3030,7 +3031,7 @@ tr.mceLast {
   width: 25px;
   margin-right: 13px;
   /* small IE fixes */
-  
+
   *margin: 0;
   *height: 210px;
   *width: 30px;
@@ -3604,7 +3605,7 @@ a:hover.medal {
   color: #777;
   line-height: 40px;
   /*letter-spacing:0px*/
-  
+
   margin-top: 3px;
 }
 .vote-count {
@@ -3772,7 +3773,7 @@ body.main-page ins {
   /* a hack for google adwords
    * todo: make rule above more specific
    * and remove this one */
-  
+
   background: transparent;
 }
 /* ----- Red Popup notification ----- */
@@ -4119,12 +4120,12 @@ button::-moz-focus-inner {
 .submit {
   cursor: pointer;
   /*letter-spacing:1px;*/
-  
+
   background-color: #D4D0C8;
   height: 30px;
   border: 1px solid #777777;
   /*	width:100px; */
-  
+
   font-weight: bold;
   font-size: 120%;
 }
@@ -4170,7 +4171,7 @@ button::-moz-focus-inner {
 }
 .orange {
   /* used in django.po */
-  
+
   color: #d64000;
   font-weight: bold;
 }
@@ -4216,7 +4217,7 @@ button::-moz-focus-inner {
   padding: 3px 5px 3px 5px;
   background-color: #fff380;
   /* nice yellow */
-  
+
   font-weight: normal;
   -moz-border-radius: 5px;
   -khtml-border-radius: 5px;
@@ -4763,7 +4764,7 @@ textarea.tipped-input {
   margin: 9px 0 0 -6px;
   -webkit-box-shadow: none;
   /* undo bootstrap glow */
-  
+
   -moz-box-shadow: none;
   padding: 0 0 0 6px;
 }
@@ -5001,7 +5002,7 @@ td.setting-input textarea {
 
 @media screen and (max-width: 960px) {
   /* content margins touch viewport */
-  
+
   * {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -5065,7 +5066,7 @@ td.setting-input textarea {
     padding: 0;
   }
   /* overall style changes */
-  
+
   #logo img {
     padding: 2px 8px 8px 8px;
     height: 65px;
@@ -5079,7 +5080,7 @@ td.setting-input textarea {
   }
   #userToolsNav {
     /* Navigation bar containing login link or user information, check widgets/user_navigation.html*/
-    
+
     height: 22px;
     padding-bottom: 8px;
     white-space: nowrap;
@@ -5199,27 +5200,31 @@ td.setting-input textarea {
     z-index: 10000;
   }
   input[type="submit"].searchBtn {
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0);
-    background-color: rgba(255, 255, 255, 0);
-    height: 27px;
-    border: #FFF 1px solid;
-    line-height: 22px;
-    text-align: center;
-    margin: 0;
-    width: 30px;
-    /* background-size: 20%; */
-    background: -107px -44px url(../images/sprites.png) no-repeat;
-    border-radius: 0;
-    -ms-border-radius: 0;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
-    -khtml-border-radius: 0;
-    -webkit-box-shadow: 0 0 0 #929292;
-    -moz-box-shadow: 0 0 0 #929292;
-    /* box-shadow: 0 0 0 #929292; */
-    cursor: pointer;
-    z-index: 10001;
+      margin: 0;
+      display: inline-block;
+      padding: 6px 12px;
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.42857143;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      width: 32px;
+      height: 32px;
+      background:
+          url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIzMnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZXNjLz48ZGVmcy8+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSI+PGcgZmlsbD0iIzkyOTI5MiIgaWQ9Imljb24tMTExLXNlYXJjaCI+PHBhdGggZD0iTTE5LjQyNzExNjQsMjEuNDI3MTE2NCBDMTguMDM3MjQ5NSwyMi40MTc0ODAzIDE2LjMzNjY1MjIsMjMgMTQuNSwyMyBDOS44MDU1NzkzOSwyMyA2LDE5LjE5NDQyMDYgNiwxNC41IEM2LDkuODA1NTc5MzkgOS44MDU1NzkzOSw2IDE0LjUsNiBDMTkuMTk0NDIwNiw2IDIzLDkuODA1NTc5MzkgMjMsMTQuNSBDMjMsMTYuMzM2NjUyMiAyMi40MTc0ODAzLDE4LjAzNzI0OTUgMjEuNDI3MTE2NCwxOS40MjcxMTY0IEwyNy4wMTE5MTc2LDI1LjAxMTkxNzYgQzI3LjU2MjExODYsMjUuNTYyMTE4NiAyNy41NTc1MzEzLDI2LjQ0MjQ2ODcgMjcuMDExNzE4NSwyNi45ODgyODE1IEwyNi45ODgyODE1LDI3LjAxMTcxODUgQzI2LjQ0Mzg2NDgsMjcuNTU2MTM1MiAyNS41NTc2MjA0LDI3LjU1NzYyMDQgMjUuMDExOTE3NiwyNy4wMTE5MTc2IEwxOS40MjcxMTY0LDIxLjQyNzExNjQgTDE5LjQyNzExNjQsMjEuNDI3MTE2NCBaIE0xNC41LDIxIEMxOC4wODk4NTExLDIxIDIxLDE4LjA4OTg1MTEgMjEsMTQuNSBDMjEsMTAuOTEwMTQ4OSAxOC4wODk4NTExLDggMTQuNSw4IEMxMC45MTAxNDg5LDggOCwxMC45MTAxNDg5IDgsMTQuNSBDOCwxOC4wODk4NTExIDEwLjkxMDE0ODksMjEgMTQuNSwyMSBMMTQuNSwyMSBaIiBpZD0ic2VhcmNoIi8+PC9nPjwvZz48L3N2Zz4=)
+          no-repeat
+          center center;
   }
   input[type="button"].cancelSearchBtn {
     font-size: 20px !important;
@@ -5240,10 +5245,6 @@ td.setting-input textarea {
     width: 35px !important;
     cursor: pointer;
     z-index: 10001;
-  }
-  input[type="submit"].searchBtn:hover {
-    background-image: none;
-    background: #dddddd url(../images/sprites.png) no-repeat -155px -44px !important;
   }
   #scopeNav {
     height: 30px;
@@ -5337,7 +5338,7 @@ td.setting-input textarea {
     margin: 0px 10px 0 0;
   }
   /* front page short summary */
-  
+
   .short-summary .counts .views,
   .short-summary .counts .votes,
   .short-summary .userinfo {
@@ -5747,4 +5748,40 @@ body.lang-cs-cz .box .inputs #ignoredTagInput,
 body.lang-cs-cz .box .inputs #subscribedTagInput,
 body.lang-cs-cz .box .inputs #ab-tag-search {
   width: 134px;
+}
+
+
+
+
+
+
+nav.navbar-default {
+    background: #f4f4f4 !important;
+}
+
+.mg11 {
+    margin: 11px !important;
+}
+
+.mt15 {
+    margin-top: 15px !important;
+}
+
+.pt55 {
+    padding-top: 55px;
+}
+
+.ml15 {
+    margin-left:15px;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: transparent !important;
+}
+
+@media screen and (max-width: 768px) {
+    .form-control{
+        display: inline-block !important;
+        width: 80% !important;
+    }
 }
