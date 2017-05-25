@@ -758,7 +758,7 @@ body.user-messages {
   padding: 0;
   margin: 0;
   position: relative;
-  width: 100%;
+  width: 95%;
 }
 .search-drop-menu ul li {
   padding: 5px 10px;
@@ -901,8 +901,7 @@ input[type="submit"],
 input[type="button"],
 input[type="reset"],
 .create-password-account,
-.button,
-.btn {
+.button{
   border: 0 !important;
   border-top: #eaf2f3 1px solid;
   -webkit-box-sizing: border-box;
@@ -941,8 +940,7 @@ button:focus,
 input[type="submit"]:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus,
-.button:focus,
-.btn:focus {
+.button:focus {
   outline: none !important;
 }
 button.large,
@@ -956,8 +954,7 @@ input[type="reset"].large,
   padding: 0 10px;
 }
 button:hover,
-.button:hover,
-.btn:hover {
+.button:hover {
   background-position: 0 0 !important;
   background-color: #cde5e9;
   background-repeat: no-repeat;
@@ -1033,7 +1030,7 @@ form.ajax-file-upload img.spinner {
   /* to match width of sidebar */
 }
 .search-drop-menu {
-  width: 100%;
+  width: 55%;
 }
 .ask-page .search-drop-menu,
 body.anon.ask-page .search-drop-menu {
@@ -5609,7 +5606,7 @@ body.lang-hu .scope-selector {
 }
 body.lang-hu #searchBar,
 body.lang-hu .search-drop-menu {
-  margin-left: 252px;
+  /*margin-left: 252px;*/
 }
 body.lang-hu .box .inputs #interestingTagInput,
 body.lang-hu .box .inputs #ignoredTagInput,
@@ -5783,5 +5780,18 @@ nav.navbar-default {
     .form-control{
         display: inline-block !important;
         width: 80% !important;
+    }
+
+    .navbar-form {
+        border:none !important;
+    }
+
+    .hidden-sm-down {
+        display: none !important;
+    }
+
+    .search-drop-menu {
+        top: 115px !important;
+        width: 95% !important;
     }
 }

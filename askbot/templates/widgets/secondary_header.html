@@ -2,13 +2,14 @@
 <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed mt15" data-toggle="collapse" data-target="#collapseHeader"
+            <a type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#collapseHeader"
                     aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-            </button>
+            </a>
             {# form is wrapping search buttons and the search bar inputs #}
             {% set enabled_scopes_class = 'scopes-' +
                 '%s'|format(settings.ALL_SCOPE_ENABLED) + '-' +
@@ -40,12 +41,13 @@
                     class="navbar-form navbar-left"
                     method="get">
                 <span>{% include "widgets/search_bar.html" %}</span>
-            </form>
-            {% if settings.ASK_BUTTON_ENABLED %}
-                <span>
+
+                {% if settings.ASK_BUTTON_ENABLED %}
+                    <span>
                 {% include "widgets/ask_button.html" %}
             </span>
-            {% endif %}
+                {% endif %}
+            </form>
         </div>
     </div>
 </nav>
