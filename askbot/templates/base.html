@@ -34,8 +34,8 @@
             {{settings.CUSTOM_HEADER}}
         </div>
         {% endif %}
-        {% include "widgets/header.html" %} {# Logo, user tool navigation and meta navitation #}
         {% include "widgets/secondary_header.html" %} {# Scope selector, search input and ask button #}
+        {% include "widgets/header.html" %} {# Logo, user tool navigation and meta navitation #}
         {% if settings.ENABLE_LEADING_SIDEBAR %}
         <div id="leading-sidebar">
             {{ settings.LEADING_SIDEBAR }}

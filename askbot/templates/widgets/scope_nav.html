@@ -1,26 +1,24 @@
-<div id="scopeNav">
-{% if need_scope_links %}
-    {% if active_tab != "ask" %}
-        {% if not search_state %}  {#  get empty SearchState() if there's none #}
-            {% set search_state=search_state|get_empty_search_state %}
+    {% if need_scope_links %}
+        {% if active_tab != "ask" %}
+                {% if not search_state %}  {#  get empty SearchState() if there's none #}
+                    {% set search_state=search_state|get_empty_search_state %}
+                {% endif %}
+                {% if settings.ALL_SCOPE_ENABLED %}
+                    <li class="pull-left"><a class="{% if scope == 'all' %}on{% endif %}"
+                       href="{{ search_state.change_scope('all').full_url() }}"
+                    >{% trans %}ALL{% endtrans %}</a></li>
+                {% endif %}
+                {% if settings.UNANSWERED_SCOPE_ENABLED %}
+                    <li class="pull-left"><a class="{% if scope == 'unanswered' %}on{% endif %}"
+                           href="{{ search_state.change_scope('unanswered').change_sort('answers-asc').full_url() }}"
+                    >{{ settings.WORDS_UNANSWERED|escape }}</a></li>
+                {% endif %}
+                {% if request.user.is_authenticated() and settings.FOLLOWED_SCOPE_ENABLED %}
+                    <li class="pull-left"><a class="{% if scope == 'followed' %}on{% endif %}"
+                           href="{{ search_state.change_scope('followed').full_url() }}"
+                    >{% trans %}FOLLOWED{% endtrans %}</a></li>
+                {% endif %}
+                {% else %}
+                <div class="scope-selector ask-message">{{ settings.WORDS_PLEASE_ASK_YOUR_QUESTION_HERE|escape }}</div>
         {% endif %}
-        {% if settings.ALL_SCOPE_ENABLED %}
-        <a class="scope-selector {% if scope == 'all' %}on{% endif %}"
-            href="{{ search_state.change_scope('all').full_url() }}"
-        >{% trans %}ALL{% endtrans %}</a>
-        {% endif %}
-        {% if settings.UNANSWERED_SCOPE_ENABLED %}
-        <a class="scope-selector {% if scope == 'unanswered' %}on{% endif %}"
-            href="{{ search_state.change_scope('unanswered').change_sort('answers-asc').full_url() }}"
-        >{{ settings.WORDS_UNANSWERED|escape }}</a>
-        {% endif %}
-        {% if request.user.is_authenticated() and settings.FOLLOWED_SCOPE_ENABLED %} 
-        <a class="scope-selector {% if scope == 'followed' %}on{% endif %}"
-            href="{{ search_state.change_scope('followed').full_url() }}"
-        >{% trans %}FOLLOWED{% endtrans %}</a>
-        {% endif %}
-    {% else %}
-    <div class="scope-selector ask-message">{{ settings.WORDS_PLEASE_ASK_YOUR_QUESTION_HERE|escape }}</div>
     {% endif %}
-{% endif %}
-</div>
