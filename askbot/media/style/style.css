@@ -271,7 +271,7 @@ a:hover {
   text-decoration: underline;
 }
 h1 {
-  font-size: 26px;
+  font-size: 26px !important;
   font-weight: normal;
   line-height: 30px;
   padding: 0px 0 5px 0px;
@@ -2358,7 +2358,7 @@ tr.mceLast {
 }
 .question-page h1 a {
   color: #464646;
-  font-size: 26px;
+  font-size: 26px !important;
   font-weight: normal;
   line-height: 1;
 }
@@ -2388,13 +2388,13 @@ tr.mceLast {
 .question-page h1 .js-simple-editor textarea {
   color: #666;
   font-family: 'Open Sans Condensed', Arial, sans-serif;
-  font-size: 30px;
+  font-size: 30px !important;
   line-height: 36px;
   height: 66px;
   width: 100% !important;
 }
 .question-page h1 .js-error {
-  font-size: 16px;
+  font-size: 16px !important;
   font-family: Arial;
 }
 .question-page p.rss {
@@ -4094,7 +4094,7 @@ a.offensive {
 }
 .message h1 {
   padding-top: 0px;
-  font-size: 15px;
+  font-size: 15px !important;
 }
 .message p {
   margin-bottom: 0px;
@@ -5360,7 +5360,7 @@ td.setting-input textarea {
   .short-summary .counts .views div,
   .short-summary .counts .answers div,
   .short-summary .counts .favorites div {
-    margin-top: 1px;
+    margin-top: 6px;
     font-size: 10px;
     line-height: 10px;
     color: #646464;
