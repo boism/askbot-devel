@@ -1068,7 +1068,7 @@ def user_reputation(request, user, context):
         'page_class': 'user-profile-page',
         'tab_name': 'reputation',
         'page_title': _("Profile - User's Karma"),
-        'latest_rep_changes': reputes.reverse()[:100],
+        'latest_rep_changes': reputes[:100],
         'rep_graph_data': format_graph_data(raw_graph_data, user)
     }
     context.update(data)
