@@ -1416,6 +1416,7 @@ ul#searchTags {
   line-height: 16px;
   font-family: Arial;
   padding-right: 4px;
+    padding-top: 20px;
 }
 .short-summary .userinfo .timeago,
 .short-summary span.anonymous {
@@ -4121,7 +4122,7 @@ button::-moz-focus-inner {
   background-color: #D4D0C8;
   height: 30px;
   border: 1px solid #777777;
-  /*	width:100px; */
+  /*  width:100px; */
 
   font-weight: bold;
   font-size: 120%;
@@ -5346,7 +5347,7 @@ td.setting-input textarea {
     line-height: 10px;
     font-family: "Microsoft YaHei", STXihei, serif;
     padding-right: 4px;
-    padding-top: 4px;
+    padding-top: 20px;
   }
   .short-summary .counts .item-count {
     padding: 0px 1px 0px 1px;
@@ -5775,6 +5776,8 @@ nav.navbar-default {
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
     background-color: transparent !important;
 }
+
+
 
 @media screen and (max-width: 768px) {
     .form-control{
