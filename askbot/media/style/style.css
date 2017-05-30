@@ -4433,7 +4433,7 @@ p.signup_p {
   display: inline-block;
 }
 .user-card {
-  display: inline-block;
+  display: block;
   height: 35px;
   width: auto;
   overflow: hidden;
