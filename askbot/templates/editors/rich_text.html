@@ -5,7 +5,9 @@
     {% if settings.EDITOR_TYPE == 'markdown' %}
         <div class="wmd-container">
             <div id="wmd-button-bar" class="wmd-panel"></div>
-            {{ post_form.text }}{# this element is resizable and will be wrapped by js #}
+            {% load emoji_tags %}
+            {{ post_form.text|emoji_replace }}
+            {# this element is resizable and will be wrapped by js #}
         </div>
         <div class="form-item">
             <p class="editor-status action-status"><span></span></p>
@@ -32,8 +34,9 @@
             <script type="text/javascript">
                 askbot['settings']['tinyMCEPlugins'] = JSON.parse('{{ settings.TINYMCE_PLUGINS|as_json }}');
             </script>
+            {% load emoji_tags %}
             {{ post_form.media }}
-            {{ post_form.text }}
+            {{ post_form.text|emoji_replace }}
         </div>
         <div class="form-item">
             <p class="editor-status action-status"><span></span></p>
