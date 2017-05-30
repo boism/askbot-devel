@@ -4435,7 +4435,7 @@ p.signup_p {
 .user-card {
   display: inline-block;
   height: 35px;
-  width: 166px;
+  width: auto;
   overflow: hidden;
 }
 .user-card .js-avatar-box {
