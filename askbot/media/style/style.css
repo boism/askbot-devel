@@ -4433,6 +4433,13 @@ p.signup_p {
   margin: 5px 10px 15px 0;
   display: inline-block;
 }
+
+.user-list .user-card {
+  display: block;
+  height: 35px;
+  width: 166px;
+  overflow: hidden;
+}
 .user-card {
   display: block;
   height: 35px;
@@ -5339,6 +5346,14 @@ td.setting-input textarea {
     float: right;
     margin: -20px 2px 0 0;
   }
+
+  .user-list .user-card {
+    display: block;
+    height: 35px;
+    width: 166px;
+    overflow: hidden;
+  }
+  
   .user-list .user-card .js-avatar-box {
     float: right;
     margin: 0px 10px 0 0;
