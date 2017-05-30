@@ -2674,6 +2674,7 @@ tr.mceLast {
   float: left;
   font-family: 'Open Sans Condensed', Arial, sans-serif;
   line-height: 15px;
+  margin-top: 2px;
 }
 .question-page #fmanswer_button {
   margin: 8px 0px;
