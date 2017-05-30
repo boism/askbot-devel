@@ -796,6 +796,7 @@ input[type="submit"].searchBtn {
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
+    margin-left: 10px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.42857143;
@@ -5197,6 +5198,7 @@ td.setting-input textarea {
     border-top: none;
     top: 30px;
     margin: 0;
+    height: 50px;
     outline: 1px solid #dadad4;
     position: absolute;
     z-index: 10000;
@@ -5206,6 +5208,7 @@ td.setting-input textarea {
       display: inline-block;
       padding: 6px 12px;
       margin-bottom: 0;
+      margin-left: 10px;
       font-size: 14px;
       font-weight: 400;
       line-height: 1.42857143;
@@ -5798,5 +5801,6 @@ nav.navbar-default {
     .search-drop-menu {
         top: 115px !important;
         width: 95% !important;
+        height: 50px;
     }
 }
