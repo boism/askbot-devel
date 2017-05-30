@@ -1405,6 +1405,7 @@ ul#searchTags {
   line-height: 26px;
   padding-left: 0;
   margin-bottom: 20px;
+  margin-top: 10px;
   display: block;
   font-family: "Microsoft YaHei", STXihei, serif;
 }
@@ -1431,11 +1432,11 @@ ul#searchTags {
 }
 .short-summary .counts {
   float: right;
-  margin: 0px 0px 0px 0px;
+  margin: 10px 0px;
   font-family: "Microsoft YaHei", STXihei, serif;
 }
 .short-summary .counts .item-count {
-  padding: 0px 5px 0px 5px;
+  padding: 0px;
   font-size: 25px;
   font-family: 'Open Sans Condensed', Arial, sans-serif;
 }
@@ -1457,12 +1458,12 @@ ul#searchTags {
 .short-summary .views {
   text-align: center;
   margin: 0 3px;
-  padding: 8px 2px 0px 2px;
-  width: 51px;
+  padding: 2px;
+  width: 41px;
   float: right;
-  height: 44px;
+  height: 41px;
   border: #dbdbd4 1px solid;
-  border-radius: 26px;
+  border-radius: 30px;
 }
 .short-summary .votes {
   background: url(../images/vote-background.png) repeat-x;
@@ -1702,7 +1703,7 @@ ul.js-related-tags li {
   -moz-box-shadow: 0px 0px 5px #d3d6d7;
   box-shadow: 0px 0px 5px #d3d6d7;
   display: inline-block;
-  height: 17px;
+  height: 20px;
   line-height: 17px;
   font-weight: normal;
   font-size: 11px;
@@ -2374,6 +2375,7 @@ tr.mceLast {
   height: 16px;
   text-shadow: none;
   line-height: 16px;
+  font-size: 22px;
   color: #888;
   padding: 0;
 }
@@ -5025,7 +5027,7 @@ td.setting-input textarea {
   .short-summary .answers,
   .short-summary .views,
   .short-summary .votes {
-    height: 51px;
+    height: 41px;
   }
   .question-page .vote-buttons {
     margin-right: 2px;
