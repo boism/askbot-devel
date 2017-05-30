@@ -777,6 +777,7 @@ body.user-messages {
   text-align: center;
   margin: 0 0 1px 0;
   padding: 4px 0 10px 0;
+  height: 50px;
 }
 .search-drop-menu.empty .footer {
   padding-top: 9px;
@@ -1031,6 +1032,7 @@ form.ajax-file-upload img.spinner {
 }
 .search-drop-menu {
   width: 55%;
+  height: 50px;
 }
 .ask-page .search-drop-menu,
 body.anon.ask-page .search-drop-menu {
