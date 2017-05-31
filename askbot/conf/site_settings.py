@@ -22,8 +22,8 @@ settings.register(
     livesettings.StringValue(
         QA_SITE_SETTINGS,
         'APP_TITLE',
-        default=_('My site'),
-        description=_('Site title for the Q&A forum')
+        default=_('Boism'),
+        description=_('Death is the new live.')
     )
 )
 
