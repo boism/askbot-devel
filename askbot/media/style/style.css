@@ -5821,6 +5821,6 @@ nav.navbar-default {
     }
     .navbar-collapse {
         position:relative;
-        overflow:visible;
+        overflow:visible !important;
     }
 }
