@@ -59,7 +59,7 @@ function ajaxFileUpload(options) {
             if(error != ''){
                 alert(error);
             } else {
-                urlInput.attr('value', fileURL);
+                urlInput.prop('value', fileURL);
             }
 
             /* re-install this as the upload extension

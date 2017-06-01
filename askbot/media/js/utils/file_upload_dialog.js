@@ -147,7 +147,7 @@ FileUploadDialog.prototype.startFileUpload = function (startUploadHandler) {
             if (error !== '') {
                 me.setErrorText(error);
             } else {
-                me.getUrlInputElement().attr('value', fileURL);
+                me.getUrlInputElement().prop('value', fileURL);
                 me.setLabelText(newStatus);
                 var buttonText = gettext('Choose a different file');
                 if (me.getFileType() === 'image') {
