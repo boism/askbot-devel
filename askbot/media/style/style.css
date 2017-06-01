@@ -5815,8 +5815,12 @@ nav.navbar-default {
     }
 
     .search-drop-menu {
-        top: 115px !important;
+        top: 65px !important;
         width: 95% !important;
-        height: 50px;
+        height: auto;
+    }
+    .navbar-collapse {
+        position:relative;
+        overflow:visible;
     }
 }
