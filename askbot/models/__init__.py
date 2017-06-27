@@ -2054,7 +2054,8 @@ def user_edit_post(self,
                 by_email=False,
                 is_private=False,
                 suppress_email=False,
-                ip_addr=None
+                ip_addr=None,
+                edit_anonymously=False
             ):
     """a simple method that edits post body
     todo: unify it in the style of just a generic post
@@ -2088,7 +2089,8 @@ def user_edit_post(self,
             by_email=by_email,
             is_private=is_private,
             suppress_email=suppress_email,
-            ip_addr=ip_addr
+            ip_addr=ip_addr,
+            edit_anonymously=edit_anonymously
         )
     elif post.post_type == 'tag_wiki':
         return post.apply_edit(
@@ -2787,7 +2789,7 @@ def user_get_personal_group(self):
     except Group.DoesNotExist:
         self.join_default_groups()
         return Group.objects.get(name=group_name)
-        
+
 
 def user_get_foreign_groups(self):
     """returns a query set of groups to which user does not belong"""

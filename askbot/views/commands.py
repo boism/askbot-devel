@@ -269,7 +269,7 @@ def mark_tag(request, **kwargs):#tagging system
 def clean_tag_name(request):
     tag_name = forms.clean_tag(request.POST['tag_name'])
     return {'cleaned_tag_name': tag_name}
-    
+
 
 #@decorators.ajax_only
 @decorators.get_only
@@ -683,7 +683,7 @@ def set_post_body(request):
             {'perform_action': _('make edits')}
         raise exceptions.PermissionDenied(message)
 
-    request.user.edit_post(post, body_text=body_text)
+    request.user.edit_post(post, body_text=body_text, edit_anonymously=post.is_anonymous)
     return {'body_html': post.html}
 
 
